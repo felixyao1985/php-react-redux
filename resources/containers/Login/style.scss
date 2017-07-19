@@ -1,0 +1,40 @@
+#mol-login {background: #FFFDF9;height: 100%;}
+#mol-login .title {
+	background: #fff;
+	box-shadow: 0 0 0 1px #ffd692;
+	font-family: MicrosoftYaHei;
+	font-size: 20px;
+	color: #979797;
+	line-height: 24px;
+	text-align: center;
+	padding: 12px 0;
+}
+#mol-login .container{padding:0 5% ;width:90%}
+#mol-login .container .login-logo {
+	text-align: center;
+	width: 100%;
+	padding: 25px 0;
+}
+#mol-login .container .login-logo img{
+	width: 190px;
+}
+#mol-login .container .login-box{}
+#mol-login .container .formText{
+	background: #FFFFFF;
+	border: 0.5px solid #CCCCCC;
+	border-radius: 2px 2px 0 0;
+	width:96%;
+	padding: 16px 2%;
+}
+#mol-login .container button {
+	background: #f39800;
+	border-radius: 3px;
+	font-family: MicrosoftYaHei;
+	font-size: 16px;
+	color: #fff;
+	line-height: 22px;
+	border: 0;
+	margin: 25px 0;
+	width: 100%;
+	padding: 8px 0;
+}
