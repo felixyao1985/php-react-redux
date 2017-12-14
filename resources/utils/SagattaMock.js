@@ -89,7 +89,7 @@ class SagittaClient {
 
   cors(data) {
     let _this = this;
-    let url   = 'http://localhost/careday/dayreport/stage.html?job=api';
+    let url   = 'http://localhost/careday/api/test.html';
 
     
     return new Promise((resolve, reject) => {

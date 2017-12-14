@@ -25,29 +25,24 @@ class DailyReocrdMenu extends BaseComponent {
 
     render() {
         let me = this;
-        const { menufilter,actions } = me.props;
-
-        function handleClick(e,_key) {
-            console.log(e);
-            console.log(_key)
-        }
+		//console.log('DailyReocrdMenu.me',me);
+        const { menufilter,actions,handleClick } = me.props;
 
         function loopDataList(filter){
             var ret = [];
             for(var _key in CONST){
                 var item = CONST[_key];
                 ret.push(
-                    <li key={"daily-record-menu" + _key}  className={filter== _key ? null : focus} onClick={() => handleClick(_key)}>{item}</li>
+                    <li key={"daily-record-menu" + _key}  className={`${filter== _key ? 'focus' : null}`} onClick={handleClick.bind(this,_key)}>{_key}{item}</li>
                 );
             }
             return ret;
-
         }
 
         return (
             <div>
                 <div className="menu daily-record-menu">
-                    { loopDataList(menufilter) }
+                    { loopDataList(menufilter.filter) }
                 </div>
 
             </div>

@@ -22,9 +22,15 @@ class DailyRecord extends BaseComponent {
 
     render() {
         let me = this;
+
+		function handleClick(_key,e) {
+			console.log(e);
+			console.log(_key);
+		}
+
         return (
             <div>
-                <div className="span4"><DailyReocrdMenu /></div>
+                <div className="span4"><DailyReocrdMenu handleClick={handleClick}/></div>
                 <div className="span8">main</div>
             </div>
         )

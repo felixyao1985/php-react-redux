@@ -19,11 +19,14 @@ class Home extends BaseComponent {
     const { actions } = me.props;
     actions.getLoginInfo()
         .then((res) => {
+				//console.log('res',res);
                 if (res.response.code == 0) {
                     hashHistory.push('/senior');
                 }
             }
-        );
+		).catch((error) => {
+			console.log('LoginInfo','error');
+		});
   }
 
   componentWillUpdate() {
@@ -35,7 +38,9 @@ class Home extends BaseComponent {
                     hashHistory.push('/');
                 }
             }
-        );
+		).catch((error) => {
+			console.log('LoginInfo','error');
+		});
   }
 
   render() {

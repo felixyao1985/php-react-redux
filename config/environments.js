@@ -31,9 +31,9 @@ export default {
   // Overrides when NODE_ENV === 'production'
   // ======================================================
   production: (config) => ({
-    compiler_html_filename: 'index.tpl',
+    compiler_html_filename: 'index.html',
     compiler_html_production_filename: 'production.html',
-    compiler_public_path: '/assessment/tpl_thumb/dayreport/dist/',
+    compiler_public_path: '/dist/',
     compiler_fail_on_warning: false,
     compiler_hash_type: 'chunkhash',
     compiler_devtool: null,

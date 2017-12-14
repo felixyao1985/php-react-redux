@@ -33,9 +33,10 @@
 ```
 
 # 备忘录
-1、bin/complie.js   含有公共静态文件 copy  并将dist文件复制进本地服务器项目中
-2、resources/utils  异步设置store数据
-2、resources/store  reducers.js injectReducer 方法进行store注入
+```
+--1、bin/complie.js   含有公共静态文件 copy  并将dist文件复制进本地服务器项目中
+--2、resources/utils  异步设置store数据
+--2、resources/store  reducers.js injectReducer 方法进行store注入
 
 ```
 

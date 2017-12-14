@@ -18,6 +18,7 @@ const initialState = (!isNode && window.__INITIAL_STATE__.hasOwnProperty('logini
   };
 
 export default function (state = initialState, action = {}) {
+ 
   const { response } = action;
   switch (action.type) {
 

@@ -25,6 +25,8 @@ export default class apiPromise {
         return promise(this)
           .then((result) => {
             const { response } = result;
+
+			if(response == null ) return dispatch({ type: FAILURE, error: 'response is null', extra: extra })
             if (response.code == 0) {
               return dispatch({ type: SUCCESS, response: response, extra: extra })
             } else {

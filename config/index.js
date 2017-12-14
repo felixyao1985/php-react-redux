@@ -37,7 +37,7 @@ const config = {
   // ----------------------------------
   compiler_html_filename   : 'index.html',
   compiler_html_production_filename   : 'index.html',
-  compiler_production_path : 'C:/phpStudy7/WWW/assessment/tpl_thumb/dayreport/dist',
+  compiler_production_path : 'C:/phpStudy7/WWW/dist',
   compiler_css_modules     : true,
   compiler_devtool         : 'source-map',
   compiler_hash_type       : 'hash',
