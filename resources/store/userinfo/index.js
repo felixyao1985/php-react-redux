@@ -4,8 +4,8 @@ import utils from '../utils';
 
 const now = new Date;
 const isNode = typeof window === 'undefined';
-const initialState = (!isNode && window.__INITIAL_STATE__.hasOwnProperty('logininfo'))
-  ? window.__INITIAL_STATE__.logininfo
+const initialState = (!isNode && window.__INITIAL_STATE__.hasOwnProperty('userinfo'))
+  ? window.__INITIAL_STATE__.userinfo
   : {
     id:0,
     accountId:0,

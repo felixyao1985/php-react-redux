@@ -8,11 +8,3 @@ export default (store) => ({
     }, 'dataDetail')
   }
 })
-
-// 同步路由组件
-// import Component from './DataDetail'
-//
-// export default (store) => ({
-//   path: '/dataDetail/:id',
-//   component: Component
-// })

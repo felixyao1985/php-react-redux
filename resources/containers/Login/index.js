@@ -7,7 +7,7 @@ import BaseComponent from '../BaseComponent.js'
 import objectAssign from 'object-assign'  //是轻量级 React 类状态更新快捷方式
 import './style.scss';
 // action
-import { getLoginInfo,setLoginInfo } from '../../store/logininfo/actions';
+import { getLoginInfo,setLoginInfo } from '../../store/userinfo/actions';
 
 class Login extends BaseComponent {
 
@@ -27,7 +27,7 @@ class Login extends BaseComponent {
 	actions.getLoginInfo()
     .then((res) => {
             if (res.response.code == 0) {
-                hashHistory.push('/senior');
+                hashHistory.push('/');
             }
         }
     );
@@ -37,10 +37,10 @@ class Login extends BaseComponent {
 
   render() {
       let me = this;
-      const {logininfo, actions} = me.props;
+      const {userinfo, actions} = me.props;
       let usename;
       let pwd;
-      console.log('logininfo', logininfo);
+      console.log('login userinfo', userinfo);
       function handleClick(e) {
           actions.setLoginInfo(usename.value.trim(), MD5(pwd.value.trim()), true)
               .then((res) => {
@@ -54,16 +54,16 @@ class Login extends BaseComponent {
       }
 
       if (me.state.login) {
-          hashHistory.push('/dailyrecord');
+          hashHistory.push('/');
       } else {
           return (
               <div className="full-screen">
                   <div id="mol-login">
-                      <div className="title">【用户登录】每日照护记录系统</div>
+                      <div className="title">【用户登录】后台管理系统</div>
                       <div className="container">
                           <div className="login-logo"><img src={require("./img/Group@2x.png")}></img></div>
                           <div className="login-box">
-                              <input placeholder="用户名/手机号" ref={r => usename = r} type="text" id="Username" name="Username"
+                              <input placeholder="用户名" ref={r => usename = r} type="text" id="Username" name="Username"
                                      className="formText" size="20"/>
 
                               <input placeholder="密码" ref={r => pwd = r} type="password" id="Password" name="Password"
@@ -87,7 +87,7 @@ class Login extends BaseComponent {
 export default connect(
   // bind state
   (state) => ({
-    logininfo: state.logininfo
+    userinfo: state.userinfo
   }),
   // bind dispatch action
   (dispatch) => ({

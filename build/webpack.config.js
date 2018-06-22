@@ -136,7 +136,7 @@ webpackConfig.module.loaders = [
     loader: 'babel',
     query: {
       cacheDirectory: true,
-      plugins: ['transform-runtime'],
+      plugins: ['transform-runtime',["import", {libraryName: "antd", style: "css"}]],
       presets: ['es2015', 'react', 'stage-0']
     }
   }, {

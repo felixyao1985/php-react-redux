@@ -1,22 +1,24 @@
 import { injectReducer } from '../../store/reducers'
-import Senior from '../Senior/router'
-import LoginRouter from '../Login/router'
-import DailyRecordRouter from '../DailyRecord/router'
+import SeniorRouter from '../Senior/router'
+import DataDetailRouter from '../DataDetail/router'
+import HomeIndexRouter from '../HomeIndex/router'
 
 // 异步路由组件
 export default (store) => ({
   path: '/',
-  indexRoute: LoginRouter(store),
+  //indexRoute: LoginRouter(store),
   getComponent (nextState, cb) {
     require.ensure([], (require) => {
 	  //注入 Reducer
-      injectReducer(store, { key: 'logininfo', reducer: require('../../store/logininfo').default });
+      injectReducer(store, { key: 'userinfo', reducer: require('../../store/userinfo').default });
+	  injectReducer(store, { key: 'menufilter', reducer: require('../../store/menu').default });
       const Component = require('./index').default;
       cb(null, Component);
     }, 'home')
   },
   childRoutes: [
-    Senior(store),
-	DailyRecordRouter(store)
+    HomeIndexRouter(store),
+    SeniorRouter(store),
+    DataDetailRouter(store)
   ]
 })

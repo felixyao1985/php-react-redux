@@ -18,7 +18,7 @@ class Banner extends BaseComponent {
 
     render() {
         let me = this;
-        const {title, logininfo } = me.props;
+        const {title, userinfo } = me.props;
 		console.log('banner me.props',me.props);
         function handleClick() {
 
@@ -28,7 +28,7 @@ class Banner extends BaseComponent {
             <div>
                 <div className="banner">
                     <div className="banner-logo"></div>
-					<div className="banner-title">{title}{logininfo.domainName}</div>
+					<div className="banner-title">{title}{userinfo.domainName}</div>
 					<div className="banner-option"></div>
                 </div>
 
@@ -42,7 +42,8 @@ class Banner extends BaseComponent {
 export default connect(
     // bind state
     (state) => ({
-        logininfo: state.logininfo
+        userinfo: state.userinfo,
+		defaultTitle: "felix",
     }),
     // bind dispatch action
     (dispatch) => ({

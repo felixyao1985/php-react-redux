@@ -7,7 +7,7 @@ import AppContainer from '../containers/AppContainer'
 import rootRouter from '../containers/rootRouter'
 
 // ======================================================
-// Init Customer Middleware: API Promise
+// 初始化中间件: API Promise
 // ======================================================
 const api = new ApiPromise();
 const history = hashHistory;
@@ -19,16 +19,7 @@ const store = createStore(api, history);
 const routes = rootRouter(store);
 
 // ========================================================
-// Developer Tools Setup
-// ========================================================
-if (__DEBUG__) {
-  if (window.devToolsExtension) {
-    window.devToolsExtension.open()
-  }
-}
-
-// ========================================================
-// Render Setup
+// Render 其实渲染节点
 // ========================================================
 const MOUNT_NODE = document.getElementById('wrapper');
 
@@ -38,7 +29,7 @@ let render = (routerKey = null) => {
       console.log(error);
       return
     }
-
+	console.log('routerKey:',routerKey);
     ReactDOM.render(
       <AppContainer
         {...renderProps}
@@ -52,29 +43,4 @@ let render = (routerKey = null) => {
   });
 };
 
-// Enable HMR and catch runtime errors in RedBox
-// This code is excluded from production bundle
-if (__DEV__ && module.hot) {
-	console.log('__DEV__',__DEV__);
-  const renderApp = render;
-  const renderError = (error) => {
-    const RedBox = require('redbox-react');
-
-    ReactDOM.render(<RedBox error={ error } />, MOUNT_NODE)
-  };
-
-  render = () => {
-    try {
-      renderApp(Math.random())
-    } catch (error) {
-      renderError(error)
-    }
-  };
-
-  module.hot.accept(['../containers/rootRouter'], () => render())
-}
-
-// ========================================================
-// Go!
-// ========================================================
 render();

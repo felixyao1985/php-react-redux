@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack --watch --devtool eval --progress --colors --hot --inline --content-base ./dist",
+    "start": "webpack --watch --devtool eval --progress --colors --hot --inline --content-base",
     "clean": "rimraf dist",
     "compile": "better-npm-run compile",
     "deploy": "better-npm-run deploy",
@@ -47,6 +47,8 @@
   },
   "homepage": "https://github.com/felixyao1985/php-react-redux#readme",
   "dependencies": {
+    "antd": "^3.6.3",
+    "babel-plugin-import": "^1.8.0",
     "classnames": "^2.2.5",
     "fbjs": "^0.8.2",
     "normalize.css": "^4.1.1",
