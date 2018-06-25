@@ -12,7 +12,16 @@ import Banner from '../Banner/banner'
 import { setDailyRecordMenu } from '../../store/menu/actions';
 import { getLoginInfo } from '../../store/userinfo/actions';
 import './style.scss';
-class Home extends BaseComponent {
+
+
+@connect(
+	(state) => ({
+		title: state.title
+	}), 
+	(dispatch) => ({
+		actions: bindActionCreators({ getLoginInfo,setDailyRecordMenu }, dispatch)
+}))
+export default class Home extends BaseComponent {
 
   constructor(props) {
     super(props);
@@ -92,13 +101,14 @@ class Home extends BaseComponent {
   }
 }
 
+/*
 export default connect(
-  /* 
+  
 	bind state 将 store 中的数据作为 props 绑定到组件上。
 	使用AAA:state.BBB 确保和store中数据绑定的名称一致
 	其中AAA 名称可随意，但是为了保证可阅读性 和BBB名字确保一直
 	其中BBB 的名称 必须和router.js 中store绑定的key名一直
-  */
+  
   (state) => ({
 		title: state.title
   }),
@@ -107,3 +117,4 @@ export default connect(
     actions: bindActionCreators({ getLoginInfo,setDailyRecordMenu }, dispatch)
   })
 )(Home);
+*/

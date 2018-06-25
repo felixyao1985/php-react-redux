@@ -5,7 +5,15 @@ import { bindActionCreators } from 'redux'
 import BaseComponent from '../BaseComponent.js'
 import './style.css';
 
-class Banner extends BaseComponent {
+@connect(
+	(state) => ({
+        userinfo: state.userinfo,
+		defaultTitle: "felix",
+	}), 
+	(dispatch) => ({
+		
+}))
+export default class Banner extends BaseComponent {
 
 
     constructor(props) {
@@ -39,6 +47,7 @@ class Banner extends BaseComponent {
 
 }
 
+/*
 export default connect(
     // bind state
     (state) => ({
@@ -50,3 +59,4 @@ export default connect(
        
     })
 )(Banner);
+*/

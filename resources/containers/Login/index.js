@@ -9,7 +9,14 @@ import './style.scss';
 // action
 import { getLoginInfo,setLoginInfo } from '../../store/userinfo/actions';
 
-class Login extends BaseComponent {
+@connect(
+	(state) => ({
+        userinfo: state.userinfo
+	}), 
+	(dispatch) => ({
+		actions: bindActionCreators({ getLoginInfo,setLoginInfo }, dispatch)
+}))
+export default class Login extends BaseComponent {
 
  
 
@@ -84,6 +91,7 @@ class Login extends BaseComponent {
   }
 }
 
+/*
 export default connect(
   // bind state
   (state) => ({
@@ -94,3 +102,4 @@ export default connect(
     actions: bindActionCreators({ getLoginInfo,setLoginInfo }, dispatch)
   })
 )(Login);
+*/

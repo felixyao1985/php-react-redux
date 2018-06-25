@@ -10,7 +10,14 @@ import { getSeniorList } from '../../store/senior/actions'
 
 import './Senior.css'
 
-class Senior extends BaseComponent {
+@connect(
+	(state) => ({
+        seniordata: state.seniordata
+	}), 
+	(dispatch) => ({
+		actions: bindActionCreators({ getSeniorList }, dispatch)
+}))
+export default class Senior extends BaseComponent {
 
   constructor(props) {
     super(props);
@@ -100,6 +107,7 @@ class Senior extends BaseComponent {
   }
 }
 
+/*
 export default connect(
   // bind state
   (state) => ({
@@ -110,3 +118,4 @@ export default connect(
     actions: bindActionCreators({ getSeniorList }, dispatch)
   })
 )(Senior);
+*/

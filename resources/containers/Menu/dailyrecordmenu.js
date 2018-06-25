@@ -8,7 +8,14 @@ import './style.css';
 // action
 import { setDailyRecordMenu } from '../../store/menu/actions';
 
-class DailyReocrdMenu extends BaseComponent {
+@connect(
+	(state) => ({
+        menufilter: state.menufilter
+	}), 
+	(dispatch) => ({
+		actions: bindActionCreators({ setDailyRecordMenu }, dispatch)
+}))
+export default class DailyReocrdMenu extends BaseComponent {
 
 
 
@@ -52,6 +59,7 @@ class DailyReocrdMenu extends BaseComponent {
 
 }
 
+/*
 export default connect(
     // bind state
     (state) => ({
@@ -62,3 +70,4 @@ export default connect(
         actions: bindActionCreators({ setDailyRecordMenu }, dispatch)
     })
 )(DailyReocrdMenu);
+*/
