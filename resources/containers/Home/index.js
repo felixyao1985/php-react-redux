@@ -26,6 +26,7 @@ export default class Home extends BaseComponent {
   constructor(props) {
     super(props);
     this.state = {
+	  collapsed: false,
       title: "home"
     }
   }
@@ -68,7 +69,7 @@ export default class Home extends BaseComponent {
     let me = this;
 	const { actions } = me.props;
 	const { Header, Sider, Content } = Layout;
-	//console.log('Home render',me);
+	
 	function handleClick(_key,_item,e) {
 		console.log(_key);
 		actions.setDailyRecordMenu(_key);
@@ -77,23 +78,26 @@ export default class Home extends BaseComponent {
 			title: _item
 		}));
 	}
-	/*
-		<div className="full-screen clearfix">
-			<div className="banner"><Banner title={me.state.title}/></div>
-			<div className="body-screen">
-				<div className="menu"><DailyReocrdMenu handleClick={handleClick}/></div>
-				<div className="main-screen">{ me.props.children }</div>
-			</div>
-		</div>	
-	*/
+
 	
 
+	let onCollapse = (collapsed) => {
+		console.log(collapsed);
+		me.setState({ collapsed });
+	}
 
     return (
 		<Layout style={{height: '100%',color: 'red'}}>
 		  <Header><Banner title={me.state.title}/></Header>
 		  <Layout>
-			<Sider><DailyReocrdMenu handleClick={handleClick}/></Sider>
+			<Sider
+				collapsible
+				collapsed={me.state.collapsed}
+				onCollapse={onCollapse}
+			>
+			
+				<DailyReocrdMenu handleClick={handleClick}/>
+			</Sider>
 			<Content>{ me.props.children }</Content>
 		  </Layout>
 		</Layout>
