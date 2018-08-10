@@ -2,6 +2,7 @@ import { injectReducer } from '../../store/reducers'
 import SeniorRouter from '../Senior/router'
 import DataDetailRouter from '../DataDetail/router'
 import HomeIndexRouter from '../HomeIndex/router'
+import DomainRouter from '../Domain/router'
 
 // 异步路由组件
 export default (store) => ({
@@ -19,6 +20,7 @@ export default (store) => ({
   childRoutes: [
     HomeIndexRouter(store),
     SeniorRouter(store),
+    DomainRouter(store),
     DataDetailRouter(store)
   ]
 })

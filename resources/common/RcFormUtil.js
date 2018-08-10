@@ -73,7 +73,7 @@ let RcFormUtil = {
       return;
     }
 
-    if (res.response.status == 0) {
+    if (res.response.status == 0||res.response.code == 0) {
       onSuccess(res);
     } else {
       if (!fieldName || !rcForm) {

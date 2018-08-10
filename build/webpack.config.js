@@ -18,6 +18,14 @@ const webpackConfig = {
     root: paths.client(),
     extensions: ['', '.js', '.jsx', '.json']
   },
+  watch: true,
+  progress: true,
+  colors: true,
+  watchOptions:{
+	poll:1000,//监测修改的时间(ms)
+	aggregeateTimeout:500, //防止重复按键，500毫米内算按键一次
+	ignored:/node_modules/,//不监测
+  },
   module: {}
 };
 
@@ -284,11 +292,5 @@ if (!__DEV__) {
 
 // SERVER RENDER
 let webpackConfigs;
-if (config.render === "server") {
-  webpackConfigs = [ webpackConfig ];
-  webpackConfigs.push(require('./webpack.server.config').default);
-} else {
-  webpackConfigs = webpackConfig;
-}
-
+webpackConfigs = webpackConfig;
 export default webpackConfigs

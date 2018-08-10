@@ -19,6 +19,6 @@ export default createRoutes
 
 /*
 记录：
- 会议 childRoutes中设置的path顺序来决定程序静态路由的匹配顺序，匹配完成则终止
+ childRoutes中设置的path顺序来决定程序静态路由的匹配顺序，匹配完成则终止
  作为childRoute 会在父 component执行完之后再执行 childRoute匹配到的component
 */

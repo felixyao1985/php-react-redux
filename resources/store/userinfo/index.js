@@ -37,7 +37,7 @@ export default function (state = initialState, action = {}) {
 			  domainName:response.domainName
 		  });
 		}
-    case CONST.SET_LoginInfo:
+    case CONST.Login:
       return objectAssign({}, state, {
           id:response.id,
           accountId:response.accountId,
@@ -51,6 +51,9 @@ export default function (state = initialState, action = {}) {
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //-* ERROR && FAIL
     //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    case CONST.SEND:
+      console.log("CONST Action index:" + CONST.SEND);
+      //return state;
     case CONST.ERROR:
       // 接口错误，直接Alert
       return state;

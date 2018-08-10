@@ -1,4 +1,4 @@
-let SUFFIX = 'BASE:';
+let SUFFIX = 'USERINFO:';
 
 export default {
   SEND :    SUFFIX + 'SEND',
@@ -7,6 +7,5 @@ export default {
   FAIL :    SUFFIX + 'FAIL',
 
   GET_LoginInfo :    SUFFIX + 'GET_LoginInfo',
-  SET_LoginInfo :    SUFFIX + 'SET_LoginInfo',
   Login			:    SUFFIX + 'Login',
 }

@@ -11,17 +11,22 @@ export default class apiPromise {
     this.middleware = ({ dispatch, getState }) => {
       return next => action => {
         const { promise, types, extra } = action;
-
+		//console.log("API promise action",action);
         if (typeof promise !== 'function') {
+		  //如果promise不是一个方法 则直接dispatch数据流
           return next(action);
         }
 
         // Retreive the actions of different stages from the action object
         const [REQUEST, SUCCESS, ERROR, FAILURE] = types;
 
-        // We first dispatch the REQUEST action
+        // 先发dispatch 一个状态为REQUEST的Action 
+		/*
+		next(action) 执行一次dispatch
+		REQUEST: 此处定义为先返回一个XX SEND的信息，告诉页面请求已发出。
+		*/
         next({ type: REQUEST, response: null, extra: extra });
-
+		//console.log('API CLIENT types:', types);
         return promise(this)
           .then((result) => {
             const { response } = result;
@@ -34,7 +39,7 @@ export default class apiPromise {
             }
           })
           .catch((error) => {
-            console.error('API CLIENT MIDDLEWARE ERROR:', error);
+            //console.error('API CLIENT MIDDLEWARE ERROR:', error);
             return dispatch({ type: 'FAIL', error: error, extra: extra });
           });
       }

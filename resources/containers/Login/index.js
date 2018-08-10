@@ -7,16 +7,16 @@ import BaseComponent from '../BaseComponent.js'
 import objectAssign from 'object-assign'  //是轻量级 React 类状态更新快捷方式
 import './style.scss';
 // action
-import { getLoginInfo,setLoginInfo } from '../../store/userinfo/actions';
+import { getLoginInfo,Login } from '../../store/userinfo/actions';
 
 @connect(
 	(state) => ({
         userinfo: state.userinfo
 	}), 
 	(dispatch) => ({
-		actions: bindActionCreators({ getLoginInfo,setLoginInfo }, dispatch)
+		actions: bindActionCreators({ getLoginInfo,Login }, dispatch)
 }))
-export default class Login extends BaseComponent {
+export default class LoginPlan extends BaseComponent {
 
  
 
@@ -49,7 +49,7 @@ export default class Login extends BaseComponent {
       let pwd;
       console.log('login userinfo', userinfo);
       function handleClick(e) {
-          actions.setLoginInfo(usename.value.trim(), MD5(pwd.value.trim()), true)
+          actions.Login(usename.value.trim(), MD5(pwd.value.trim()), true)
               .then((res) => {
                       if (res.response.code == 0) {
                           me.setState(objectAssign({}, me.state, {

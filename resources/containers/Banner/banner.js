@@ -21,9 +21,6 @@ export default class Banner extends BaseComponent {
     }
 
 
-
-
-
     render() {
         let me = this;
         const {title, userinfo } = me.props;

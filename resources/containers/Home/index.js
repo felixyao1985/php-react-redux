@@ -38,7 +38,7 @@ export default class Home extends BaseComponent {
     actions.getLoginInfo()
         .then((res) => {
                 if (res.response.code == 0) {
-					hashHistory.push('/home');
+					//hashHistory.push('/home');
                 }else{
 					hashHistory.push('/login');
 				}
@@ -73,10 +73,12 @@ export default class Home extends BaseComponent {
 	function handleClick(_key,_item,e) {
 		console.log(_key);
 		actions.setDailyRecordMenu(_key);
-		//hashHistory.push('/'+_key);
+		hashHistory.push('/'+_key);
 		me.setState(objectAssign({}, me.state, {
 			title: _item
 		}));
+
+
 	}
 
 	
