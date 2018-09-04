@@ -6,7 +6,7 @@ import { SzLib } from '../../common';
 import BaseComponent from '../BaseComponent.js';
 import objectAssign from 'object-assign';
 import withLoading from '../../utils/decorators/withLoading';
-
+import './style.css';
 
 @connect((state) => ({
 		
@@ -38,7 +38,9 @@ export default class HomeIndex extends BaseComponent {
     return (
       <div>
         <h1>首页</h1>
-      
+		<div><img src={require("./img/Group@2x.png")}></img></div>
+		<div className="HomeIndex"></div>
+		<div><img src={require("../../public/img/img.png")}></img></div>
       </div>
     );
   }

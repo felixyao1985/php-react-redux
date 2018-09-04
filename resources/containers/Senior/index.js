@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux'
 import objectAssign from 'object-assign'  //是轻量级 React 类状态更新快捷方式
 import { SzLib, RcFormUtil } from '../../common'
 import BaseComponent from '../BaseComponent.js'
-
 import { getSeniorList } from '../../store/senior/actions'
 
 import './Senior.css'
@@ -41,6 +40,11 @@ export default class Senior extends BaseComponent {
       }));
     }
 	*/
+
+  }
+
+  componentDidMount(nextProps, nextState) {
+	
   }
 
   refreshDataList() {
@@ -67,9 +71,6 @@ export default class Senior extends BaseComponent {
       return (
         <div>
 		  <div className="senior-box">
-			  <ul>
-				Loading...
-			  </ul>		  
 			</div>
         </div>
       )

@@ -6,7 +6,7 @@ import objectAssign from 'object-assign'  //是轻量级 React 类状态更新�
 import { SzLib, RcFormUtil } from '../../common'
 import BaseComponent from '../BaseComponent.js'
 import withLoading from '../../utils/decorators/withLoading';
-import { getDomainList } from '../../store/domain/actions'
+import { getDomainList,Clear } from '../../store/domain/actions'
 import { Table, Icon, Divider,Button  } from 'antd';
 
 @connect(
@@ -14,9 +14,10 @@ import { Table, Icon, Divider,Button  } from 'antd';
         domaindata: state.domaindata
 	}), 
 	(dispatch) => ({
-		actions: bindActionCreators({ getDomainList }, dispatch)
+		actions: bindActionCreators({ getDomainList,Clear }, dispatch)
 }))
 @withLoading(state => {
+  //console.log("DomainList @withLoading",state);
   return state.loadEnd == false;
 })
 export default class DomainList extends BaseComponent {
@@ -26,24 +27,50 @@ export default class DomainList extends BaseComponent {
     this.state = {
       loadEnd: false
     }
+	//console.log("DomainList",this.state);
   }
   //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
   //-* component life cycle
   //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+  //渲染前调用
   componentWillMount() {
     let me = this;
-	
+	//console.log("DomainList componentWillMount",this.state);
     const { domaindata: { dataList } } = me.props;
 
     if (dataList.length == 0) {
-      this.refreshDataList();
+
+		setTimeout(() => {
+		  me.refreshDataList();
+		}, 5000)
+      
     } else {
-      me.setState(objectAssign({}, me.state, {
-        loadEnd: true
-      }));
+		me.setState(objectAssign({}, me.state, {
+			loadEnd: true
+		}));
+
     }
 
   }
+  
+  //组件接收到新的props或者state但还没有render时被调用。在初始化时不会被调用。
+  componentWillUpdate() {
+	//console.log("DomainList componentWillUpdate",this.state);
+  }
+
+  //组件从 DOM 中移除的时候立刻被调用。
+  componentWillUnmount() {
+	//console.log("DomainList componentWillUnmount",this.state);
+	/*
+	this.setState({
+		loadEnd: false
+	});
+	*/
+    let me = this;
+    const { actions } = me.props;
+	actions.Clear();
+  }
+
 
   refreshDataList() {
     let me = this;

@@ -10,6 +10,11 @@ import { setDailyRecordMenu } from '../../store/menu/actions';
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
+
+/*
+antd Menu貌似不用 dispatch，其自带了事件来选中menu
+*/
+
 @connect(
 	(state) => ({
         menufilter: state.menufilter
@@ -30,8 +35,8 @@ export default class DailyReocrdMenu extends BaseComponent {
 
     render() {
         let me = this;
-        const { menufilter,actions,handleClick } = me.props;
-
+        const { menufilter,actions,handleClick,defaultFilter } = me.props;
+        //console.log("DailyReocrdMenu",this);
         function loopDataList(filter){
             var ret = [];
             for(var _key in CONST){
@@ -50,7 +55,7 @@ export default class DailyReocrdMenu extends BaseComponent {
             <div className="menu daily-record-menu" >
 				  
 				<Menu
-				  defaultSelectedKeys={['6']}
+				  defaultSelectedKeys={["daily-record-menu"+defaultFilter]}
 				  defaultOpenKeys={['sub1']}
 				  mode="inline"
 				  theme="dark"

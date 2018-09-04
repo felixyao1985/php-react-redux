@@ -8,5 +8,6 @@ export default {
 
   GET_LIST:    SUFFIX + 'GET_LIST',
   GET_DATA_DETAIL:    SUFFIX + 'GET_DATA_DETAIL',
-  ADD_COUNT:   SUFFIX + 'ADD_COUNT'
+  Clear:   SUFFIX + 'Clear'
+
 }

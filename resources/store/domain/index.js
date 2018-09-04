@@ -25,6 +25,10 @@ export default function (state = initialState, action = {}) {
       return objectAssign({}, state, {
         dataList: utils.storeList(dataSchemas, null, response.data)
       });
+    case CONST.Clear:
+      return objectAssign({}, state, {
+        dataList: []
+      });
     case CONST.GET_DATA_DETAIL:
       tmpDataDetail[extra] = utils.store(dataSchemas, state.dataDetail[extra], response.data);
       return objectAssign({}, state, {

@@ -21,6 +21,16 @@ export function getDomainList() {
 			  address: '西湖区湖底公园1号'
 			}];
 
+			for(let i=3;i<100;i++) {
+				let temp = {
+				  id: i,
+				  name: '潍坊敬老院'+i,
+				  address: '西湖区湖底公园'+i+'号'
+				}
+
+				dataSource.push(temp);
+			}
+
 			var res = {}
 			var response = {};
 			response.data = dataSource;
@@ -31,3 +41,10 @@ export function getDomainList() {
 	}
   };
 }
+
+export function Clear() {
+    return {
+        type: CONST.Clear
+    }
+}
+

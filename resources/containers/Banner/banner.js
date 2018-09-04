@@ -24,7 +24,7 @@ export default class Banner extends BaseComponent {
     render() {
         let me = this;
         const {title, userinfo } = me.props;
-		console.log('banner me.props',me.props);
+		//console.log('banner me.props',me.props);
         function handleClick() {
 
         }

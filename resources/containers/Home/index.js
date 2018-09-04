@@ -38,6 +38,7 @@ export default class Home extends BaseComponent {
     actions.getLoginInfo()
         .then((res) => {
                 if (res.response.code == 0) {
+					//actions.setDailyRecordMenu("Senior");
 					//hashHistory.push('/home');
                 }else{
 					hashHistory.push('/login');
@@ -77,8 +78,6 @@ export default class Home extends BaseComponent {
 		me.setState(objectAssign({}, me.state, {
 			title: _item
 		}));
-
-
 	}
 
 	
@@ -87,6 +86,7 @@ export default class Home extends BaseComponent {
 		console.log(collapsed);
 		me.setState({ collapsed });
 	}
+
 
     return (
 		<Layout style={{height: '100%',color: 'red'}}>
@@ -98,7 +98,7 @@ export default class Home extends BaseComponent {
 				onCollapse={onCollapse}
 			>
 			
-				<DailyReocrdMenu handleClick={handleClick}/>
+				<DailyReocrdMenu handleClick={handleClick} defaultFilter={"Senior"}/>
 			</Sider>
 			<Content>{ me.props.children }</Content>
 		  </Layout>
